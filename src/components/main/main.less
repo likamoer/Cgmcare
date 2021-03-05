@@ -1,4 +1,9 @@
 .main{
+  width: 100%;
+  height: 100%;
+  .ivu-layout {
+    height: 100%;
+  }
   .logo-con{
     height: 64px;
     padding: 10px;
@@ -9,10 +14,12 @@
       margin: 0 auto;
     }
   }
-  .header-con{
+  .header-con{ 
     background: #fff;
     padding: 0 20px;
     width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 3px 6px 0px rgba(230, 233, 240, 0.3);
   }
   .main-layout-con{
     height: 100%;
@@ -21,6 +28,7 @@
   .main-content-con{
     height: ~"calc(100% - 60px)";
     overflow: hidden;
+    padding: 10px;
   }
   .tag-nav-wrapper{
     padding: 0;
@@ -29,13 +37,75 @@
   }
   .content-wrapper{
     padding: 18px;
-    height: ~"calc(100% - 80px)";
-    overflow: auto;
+    height: calc(~"100% - 60px");
+    overflow-y: scroll;
   }
   .left-sider{
+    background: #fff;
     .ivu-layout-sider-children{
       overflow-y: scroll;
       margin-right: -18px;
+    }
+    .ivu-menu {
+      background: #fff;
+    }
+    .ivu-menu-submenu,
+    .ivu-menu-submenu-title,
+    .ivu-menu-item {
+      i {
+        color: #16CCA6;
+      }
+      color: #1F2E4D !important;
+    }
+    .ivu-menu-submenu:hover {
+      .ivu-menu-submenu-title {
+        background: #16CCA6 !important;
+        i {
+          color: #fff;
+        }
+        color: #fff !important;
+      }
+    }
+    .ivu-menu-opened {
+      .ivu-menu-item:hover {
+        background: #16CCA6 !important;
+      }
+      .ivu-menu-item-selected,
+      .ivu-menu-item-active,
+      .ivu-menu-submenu-title {
+        background: #16CCA6 !important;
+        i {
+          color: #fff;
+        }
+        color: #fff !important;
+      }
+    }
+    .ivu-menu-item:hover,
+    .ivu-menu-item-selected {
+      background: #16CCA6 !important;
+      i {
+        color: #fff;
+      }
+      color: #fff !important;
+    }
+    .ivu-menu-submenu {
+      .ivu-menu {
+        .ivu-menu-item:hover,
+        .ivu-menu-item-active:hover {
+          background: #16CCA6 !important;
+          i {
+            color: #fff;
+          }
+          color: #fff !important;
+        }
+        .ivu-menu-item-selected {
+          background: #16CCA6 !important;
+          i {
+            color: #fff;
+          }
+          color: #fff !important;
+        }
+      }
     }
   }
 }

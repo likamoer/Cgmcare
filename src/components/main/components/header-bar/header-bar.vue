@@ -1,8 +1,10 @@
 <template>
   <div class="header-bar">
-    <span class="header-title">CGM·CARE 糖尿病管理工作平台</span>
-    <sider-trigger :collapsed="collapsed" icon="md-menu" @on-change="handleCollpasedChange"></sider-trigger>
-    <custom-bread-crumb show-icon style="margin-left: 30px;" :list="breadCrumbList"></custom-bread-crumb>
+   <div class="bar-left">
+      <span class="header-title">CGM·CARE 糖尿病管理工作平台</span>
+      <sider-trigger :collapsed="collapsed" icon="md-menu" @on-change="handleCollpasedChange"></sider-trigger>
+      <custom-bread-crumb show-icon style="margin-left: 30px;" :list="breadCrumbList"></custom-bread-crumb>
+   </div>
     <div class="custom-content-con">
       <slot></slot>
     </div>

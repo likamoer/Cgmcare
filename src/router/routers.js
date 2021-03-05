@@ -33,6 +33,7 @@ export default [
     redirect: '/home',
     component: Main,
     meta: {
+      title: 'CGMCare',
       hideInMenu: true,
       notCache: true
     },
@@ -42,7 +43,7 @@ export default [
         name: 'home',
         meta: {
           hideInMenu: true,
-          title: '首页',
+          title: 'CGMCare',
           notCache: true,
           icon: 'md-home'
         },
@@ -72,7 +73,7 @@ export default [
         name: 'join_page',
         meta: {
           icon: '_qq',
-          title: 'QQ群'
+          title: 'CGMCare'
         },
         component: () => import('@/view/join-page.vue')
       }
