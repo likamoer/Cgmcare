@@ -1,10 +1,11 @@
 <template>
-  <Card :shadow="shadow" class="info-card-wrapper" :padding="0">
+  <Card :shadow="shadow" :title="title" class="info-card-wrapper" :class="{'isLine': !isLine}">
+    <div class="card_icon" slot="extra" >
+      <Icon type="ios-add-circle-outline" @click="add" v-if="addShow" :size="iconSize" color="#333" />
+      <Icon type="ios-arrow-dropright" @click="go" v-if="goShow" :size="iconSize" color="#333" />
+    </div>
     <div class="content-con">
-      <div class="left-area" :style="{background: color, width: leftWidth}">
-        <common-icon class="icon" :type="icon" :size="iconSize" color="#fff"/>
-      </div>
-      <div class="right-area" :style="{width: rightWidth}">
+      <div class="right-area">
         <div>
           <slot></slot>
         </div>
@@ -15,31 +16,41 @@
 
 <script>
 import CommonIcon from '_c/common-icon'
+import Icons from '_c/icons'
 export default {
   name: 'InforCard',
   components: {
-    CommonIcon
+    CommonIcon,
+    Icons
   },
   props: {
-    left: {
-      type: Number,
-      default: 36
+    addShow: {
+      type: Boolean,
+      default: true // 添加图片显隐
     },
-    color: {
-      type: String,
-      default: '#2d8cf0'
+    goShow: {
+      type: Boolean,
+      default: true // // 进入图片显隐
     },
-    icon: {
+    title: {
       type: String,
-      default: ''
+      default: '' // 图片标题
+    },
+    isLine: {
+      type: Boolean,
+      default: true // // 进入图片显隐
     },
     iconSize: {
       type: Number,
-      default: 20
+      default: 20 // icon大小
+    },
+    left: {
+      type: Number,
+      default: 20 // 左距离
     },
     shadow: {
       type: Boolean,
-      default: false
+      default: false // 卡片是否有阴影
     }
   },
   computed: {
@@ -48,6 +59,16 @@ export default {
     },
     rightWidth () {
       return `${100 - this.left}%`
+    }
+  },
+  methods: {
+    add () {
+      // 添加暴露事件
+      this.$emit('add')
+    },
+    go () {
+      // 进入暴露事件
+      this.$emit('go')
     }
   }
 }
@@ -60,6 +81,12 @@ export default {
   display: table;
   text-align: center;
 }
+.info-card-wrapper {
+  border-radius: 8px;
+}
+.ivu-card-head {
+    border-bottom: 0px !important;
+  }
 .size{
   width: 100%;
   height: 100%;
@@ -68,27 +95,34 @@ export default {
   display: table-cell;
   vertical-align: middle;
 }
+.icon {
+  margin-right: 10px;
+  cursor: pointer;
+}
 .info-card-wrapper{
   .size;
-  overflow: hidden;
+  width: 100%;
+  // overflow: hidden;
   .ivu-card-body{
+    width: 100%;
+    padding: 0 10px;
     .size;
   }
   .content-con{
+    width: 100%;
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
     .size;
     position: relative;
-    .left-area{
-      .common;
-      & > .icon{
-        .middle-center;
-      }
-    }
-    .right-area{
-      .common;
-      & > div{
-        .middle-center;
-      }
-    }
+  }
+}
+.isLine {
+  .content-con{
+    width: 100%;
+    border-top: 0px solid #ccc;
+    padding: 10px 0;
+    .size;
+    position: relative;
   }
 }
 </style>

@@ -25,6 +25,12 @@ export default {
     }
   },
   mounted () {
+    let lineOption = {
+      lineStyle: {
+        color: 'rgba(151,151,151,0.5)'
+      }
+    }
+    let fontColor = '#666'
     this.$nextTick(() => {
       let xAxisData = Object.keys(this.value)
       let seriesData = Object.values(this.value)
@@ -32,18 +38,70 @@ export default {
         title: {
           text: this.text,
           subtext: this.subtext,
-          x: 'center'
+          x: 'left',
+          textStyle: {
+            fontSize: '12px',
+            color: '#333'
+          }
         },
-        xAxis: {
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'shadow'
+          }
+        },
+        xAxis: [{
           type: 'category',
-          data: xAxisData
-        },
-        yAxis: {
-          type: 'value'
-        },
+          data: xAxisData,
+          axisLine: {
+            lineStyle: {
+              color: 'rgba(151,151,151,0)',
+              type: 'dashed'
+            }
+          },
+          splitLine: {
+            lineStyle: {
+              color: 'rgba(151,151,151,0)',
+              type: 'dashed'
+            }
+          },
+          axisTick: {
+            show: false
+          },
+          axisLabel: {
+            margin: 10,
+            color: fontColor,
+            textStyle: {
+              fontSize: 14
+            }
+          }
+        }],
+        yAxis: [{
+          axisLabel: {
+            formatter: '{value}',
+            color: fontColor
+          },
+          axisTick: {
+            show: false
+          },
+          axisLine: lineOption,
+          splitLine: lineOption
+        }],
         series: [{
           data: seriesData,
-          type: 'bar'
+          barWidth: '20px',
+          type: 'bar',
+          itemStyle: {
+            normal: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                offset: 0,
+                color: '#00BD89' // 0% 处的颜色
+              }, {
+                offset: 1,
+                color: '#C9F9E1' // 100% 处的颜色
+              }], false)
+            }
+          }
         }]
       }
       this.dom = echarts.init(this.$refs.dom, 'tdTheme')
