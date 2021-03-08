@@ -61,6 +61,82 @@ export default [
     }
   },
   {
+    path: '/index',
+    name: 'index',
+    component: Main,
+    meta: {
+      hideInBread: true
+    },
+    children: [
+      {
+        path: 'index_page',
+        name: 'index_page',
+        meta: {
+          icon: '_qq',
+          title: '监测中心'
+        },
+        component: () => import('@/view/monitor/monitor.vue')
+      }
+    ]
+  },
+  {
+    path: '/patient_page',
+    name: 'patient_page',
+    component: Main,
+    meta: {
+      hideInBread: true
+    },
+    children: [
+      {
+        path: 'patient_page',
+        name: 'patient_page',
+        meta: {
+          icon: '_qq',
+          title: '患者列表'
+        },
+        component: () => import('@/view/patient/patient.vue')
+      }
+    ]
+  },
+  {
+    path: '/team_page',
+    name: 'team_page',
+    component: Main,
+    meta: {
+      hideInBread: true
+    },
+    children: [
+      {
+        path: 'team_page',
+        name: 'team_page',
+        meta: {
+          icon: '_qq',
+          title: '我的团队'
+        },
+        component: () => import('@/view/team/team.vue')
+      }
+    ]
+  },
+  {
+    path: '/company_page',
+    name: 'company_page',
+    component: Main,
+    meta: {
+      hideInBread: true
+    },
+    children: [
+      {
+        path: 'company_page',
+        name: 'company_page',
+        meta: {
+          icon: '_qq',
+          title: '组织管理'
+        },
+        component: () => import('@/view/company/company.vue')
+      }
+    ]
+  },
+  {
     path: '/join',
     name: 'join',
     component: Main,
