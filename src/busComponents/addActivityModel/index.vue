@@ -96,6 +96,8 @@
               <span class="count">140克</span>
             </div>
           </div>
+
+          <mealsPlan v-for="i in 4" :key="i"/>
         </div>
       </div>
       <div class="line"></div>
@@ -125,9 +127,16 @@
             </div>
           </div>
           <div class="tbody">
-            <div class="row">
-              <div class="date">1<br><br><br></div>
-              <div class="rowItem"></div>
+            <div class="row" v-for="i in 7" :key="i">
+              <div class="date">
+                23
+                <p>星期一</p>
+              </div>
+              <div class="rowItem" v-for="i in 4" :key="i">
+                <p :class="[]" v-for="i in 4" :key="i">米饭 300g</p>
+                <p class="green">米饭 300g</p>
+                <p class="blue">米饭 300g</p>
+              </div>
             </div>
           </div>
         </div>
@@ -136,8 +145,10 @@
   </Modal>
 </template>
 <script>
+import mealsPlan from './components/mealsPlan'
 export default {
   name: 'addActivityModel',
+  components: { mealsPlan },
   props: {
     activityData: { type: Object },
     show: Boolean,
@@ -187,8 +198,10 @@ export default {
   }
   .addPlanArea {
     width: 600px;
-    padding: 10px 40px;
+    padding: 10px 40px 20px;
     box-sizing: border-box;
+    height: 100%;
+    overflow-y: scroll;
     .formItem {
       height: 28px;
       margin-bottom: 12px;
@@ -355,8 +368,9 @@ export default {
   .previewArea {
     width: 635px;
     height: 100%;
+    overflow-y: scroll;
     box-sizing: border-box;
-    padding: 0 40px 0 20px;
+    padding: 0 40px 20px 20px;
     .header {
       height: 42px;
       display: flex;
@@ -402,16 +416,41 @@ export default {
       .tbody {
         .row {
           display: table;
+          background: #FBFBFB;
+          margin-bottom: 4px;
           .date {
             display: table-cell;
             width: 60px;
-            background-color: green;
+            box-sizing: border-box;
+            padding: 10px 0 0 14px;
+            color: #AAAAAA;
+            .blod{
+              font-size: 13px;
+              font-family: PingFangSC-Semibold, PingFang SC;
+              font-weight: 600;
+              color: #242424;
+              margin-top: 4px;
+            }
           }
           .rowItem{
             display: table-cell;
-            width: 143px;
-            background-color:red;
+            width: 128px;
+            border-left: 1px solid #fff;
+            padding: 5px 0 0 14px;
+            p{
+              color: #242424;
+              line-height: 18px;
+            }
+            .green{
+              color: #16CCA6;
+            }
+            .blue{
+              color: #32C5FF;
+            }
           }
+        }
+        .row:nth-child(even){
+          background: rgba(19, 190, 155, 0.04);
         }
       }
     }
