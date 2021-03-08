@@ -25,6 +25,7 @@
         <example style="height: 310px;"/>
       </Card>
     </Row>
+    <addActivityModel :show="true" title="创建饮食计划"/>
   </div>
 </template>
 
@@ -33,6 +34,7 @@ import InforCard from '_c/info-card'
 import CountTo from '_c/count-to'
 import { ChartPie, ChartBar } from '_c/charts'
 import Example from './example.vue'
+import addActivityModel from '_bc/addActivityModel/index.vue'
 export default {
   name: 'home',
   components: {
@@ -40,7 +42,8 @@ export default {
     CountTo,
     ChartPie,
     ChartBar,
-    Example
+    Example,
+    addActivityModel
   },
   data () {
     return {
