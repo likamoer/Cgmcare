@@ -137,6 +137,25 @@ export default [
     ]
   },
   {
+    path: '/doctor_page',
+    name: 'doctor_page',
+    component: Main,
+    meta: {
+      hideInBread: true
+    },
+    children: [
+      {
+        path: 'doctor_page',
+        name: 'doctor_page',
+        meta: {
+          icon: '_qq',
+          title: '医生详情'
+        },
+        component: () => import('@/view/doctor-detail/doctor.vue')
+      }
+    ]
+  },
+  {
     path: '/join',
     name: 'join',
     component: Main,

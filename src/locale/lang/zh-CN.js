@@ -14,6 +14,7 @@ export default {
   patient_page: '患者列表',
   team_page: '我的团队',
   company_page: '组织管理',
+  doctor_page: '医生详情',
   join_page: 'QQ群',
   doc: '文档',
   update_table_page: '上传CSV文件',
