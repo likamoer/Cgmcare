@@ -12,6 +12,7 @@ export default {
   update: '上传数据',
   index_page: '监控中心',
   patient_page: '患者列表',
+  patient_detail_page: '患者详情',
   team_page: '我的团队',
   company_page: '组织管理',
   doctor_page: '医生详情',

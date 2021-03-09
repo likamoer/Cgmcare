@@ -99,6 +99,25 @@ export default [
     ]
   },
   {
+    path: '/patient_detail_page',
+    name: 'patient_detail_page',
+    component: Main,
+    meta: {
+      hideInBread: true
+    },
+    children: [
+      {
+        path: 'patient_detail_page',
+        name: 'patient_detail_page',
+        meta: {
+          icon: '_qq',
+          title: '患者详情'
+        },
+        component: () => import('@/view/patient-detail/patient-detail.vue')
+      }
+    ]
+  },
+  {
     path: '/team_page',
     name: 'team_page',
     component: Main,
