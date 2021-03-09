@@ -25,7 +25,7 @@
         <example style="height: 310px;"/>
       </Card>
     </Row>
-    <addActivityModel :show="true" title="创建饮食计划"/>
+    <addActivityModel :show="false" title="创建饮食计划"/>
   </div>
 </template>
 
